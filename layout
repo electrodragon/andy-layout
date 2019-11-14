@@ -1,0 +1,284 @@
+#!/usr/bin/python
+
+import os
+import sys
+import pyperclip
+
+def colors():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<resources>\n'
+    txt += '   <string name="lightsalmon">#FFA07A</string>\n'
+    txt += '   <string name="salmon">#FA8072</string>\n'
+    txt += '   <string name="darksalmon">#E9967A</string>\n'
+    txt += '   <string name="lightcoral">#F08080</string>\n'
+    txt += '   <string name="indianred">#CD5C5C</string>\n'
+    txt += '   <string name="crimson">#DC143C</string>\n'
+    txt += '   <string name="firebrick">#B22222</string>\n'
+    txt += '   <string name="red">#FF0000</string>\n'
+    txt += '   <string name="darkred">#8B0000</string>\n'
+    txt += '   <string name="coral">#FF7F50</string>\n'
+    txt += '   <string name="tomato">#FF6347</string>\n'
+    txt += '   <string name="orangered">#FF4500</string>\n'
+    txt += '   <string name="gold">#FFD700</string>\n'
+    txt += '   <string name="orange">#FFA500</string>\n'
+    txt += '   <string name="darkorange">#FF8C00</string>\n'
+    txt += '   <string name="lightyellow">#FFFFE0</string>\n'
+    txt += '   <string name="lemonchiffon">#FFFACD</string>\n'
+    txt += '   <string name="lightgoldenrodyellow">#FAFAD2</string>\n'
+    txt += '   <string name="papayawhip">#FFEFD5</string>\n'
+    txt += '   <string name="moccasin">#FFE4B5</string>\n'
+    txt += '   <string name="peachpuff">#FFDAB9</string>\n'
+    txt += '   <string name="palegoldenrod">#EEE8AA</string>\n'
+    txt += '   <string name="khaki">#F0E68C</string>\n'
+    txt += '   <string name="darkkhaki">#BDB76B</string>\n'
+    txt += '   <string name="yellow">#FFFF00</string>\n'
+    txt += '   <string name="lawngreen">#7CFC00</string>\n'
+    txt += '   <string name="chartreuse">#7FFF00</string>\n'
+    txt += '   <string name="limegreen">#32CD32</string>\n'
+    txt += '   <string name="lime">#00FF00</string>\n'
+    txt += '   <string name="forestgreen">#228B22</string>\n'
+    txt += '   <string name="green">#008000</string>\n'
+    txt += '   <string name="darkgreen">#006400</string>\n'
+    txt += '   <string name="greenyellow">#ADFF2F</string>\n'
+    txt += '   <string name="yellowgreen">#9ACD32</string>\n'
+    txt += '   <string name="springgreen">#00FF7F</string>\n'
+    txt += '   <string name="mediumspringgreen">#00FA9A</string>\n'
+    txt += '   <string name="lightgreen">#90EE90</string>\n'
+    txt += '   <string name="palegreen">#98FB98</string>\n'
+    txt += '   <string name="darkseagreen">#8FBC8F</string>\n'
+    txt += '   <string name="mediumseagreen">#3CB371</string>\n'
+    txt += '   <string name="seagreen">#2E8B57</string>\n'
+    txt += '   <string name="olive">#808000</string>\n'
+    txt += '   <string name="darkolivegreen">#556B2F</string>\n'
+    txt += '   <string name="olivedrab">#6B8E23</string>\n'
+    txt += '   <string name="lightcyan">#E0FFFF</string>\n'
+    txt += '   <string name="cyan">#00FFFF</string>\n'
+    txt += '   <string name="aqua">#00FFFF</string>\n'
+    txt += '   <string name="aquamarine">#7FFFD4</string>\n'
+    txt += '   <string name="mediumaquamarine">#66CDAA</string>\n'
+    txt += '   <string name="paleturquoise">#AFEEEE</string>\n'
+    txt += '   <string name="turquoise">#40E0D0</string>\n'
+    txt += '   <string name="mediumturquoise">#48D1CC</string>\n'
+    txt += '   <string name="darkturquoise">#00CED1</string>\n'
+    txt += '   <string name="lightseagreen">#20B2AA</string>\n'
+    txt += '   <string name="cadetblue">#5F9EA0</string>\n'
+    txt += '   <string name="darkcyan">#008B8B</string>\n'
+    txt += '   <string name="teal">#008080</string>\n'
+    txt += '   <string name="powderblue">#B0E0E6</string>\n'
+    txt += '   <string name="lightblue">#ADD8E6</string>\n'
+    txt += '   <string name="lightskyblue">#87CEFA</string>\n'
+    txt += '   <string name="skyblue">#87CEEB</string>\n'
+    txt += '   <string name="deepskyblue">#00BFFF</string>\n'
+    txt += '   <string name="lightsteelblue">#B0C4DE</string>\n'
+    txt += '   <string name="dodgerblue">#1E90FF</string>\n'
+    txt += '   <string name="cornflowerblue">#6495ED</string>\n'
+    txt += '   <string name="steelblue">#4682B4</string>\n'
+    txt += '   <string name="royalblue">#4169E1</string>\n'
+    txt += '   <string name="blue">#0000FF</string>\n'
+    txt += '   <string name="mediumblue">#0000CD</string>\n'
+    txt += '   <string name="darkblue">#00008B</string>\n'
+    txt += '   <string name="navy">#000080</string>\n'
+    txt += '   <string name="midnightblue">#191970</string>\n'
+    txt += '   <string name="mediumslateblue">#7B68EE</string>\n'
+    txt += '   <string name="slateblue">#6A5ACD</string>\n'
+    txt += '   <string name="darkslateblue">#483D8B</string>\n'
+    txt += '   <string name="lavender">#E6E6FA</string>\n'
+    txt += '   <string name="thistle">#D8BFD8</string>\n'
+    txt += '   <string name="plum">#DDA0DD</string>\n'
+    txt += '   <string name="violet">#EE82EE</string>\n'
+    txt += '   <string name="orchid">#DA70D6</string>\n'
+    txt += '   <string name="fuchsia">#FF00FF</string>\n'
+    txt += '   <string name="magenta">#FF00FF</string>\n'
+    txt += '   <string name="mediumorchid">#BA55D3</string>\n'
+    txt += '   <string name="mediumpurple">#9370DB</string>\n'
+    txt += '   <string name="blueviolet">#8A2BE2</string>\n'
+    txt += '   <string name="darkviolet">#9400D3</string>\n'
+    txt += '   <string name="darkorchid">#9932CC</string>\n'
+    txt += '   <string name="darkmagenta">#8B008B</string>\n'
+    txt += '   <string name="purple">#800080</string>\n'
+    txt += '   <string name="indigo">#4B0082</string>\n'
+    txt += '   <string name="pink">#FFC0CB</string>\n'
+    txt += '   <string name="lightpink">#FFB6C1</string>\n'
+    txt += '   <string name="hotpink">#FF69B4</string>\n'
+    txt += '   <string name="deeppink">#FF1493</string>\n'
+    txt += '   <string name="palevioletred">#DB7093</string>\n'
+    txt += '   <string name="mediumvioletred">#C71585</string>\n'
+    txt += '   <string name="white">#FFFFFF</string>\n'
+    txt += '   <string name="snow">#FFFAFA</string>\n'
+    txt += '   <string name="honeydew">#F0FFF0</string>\n'
+    txt += '   <string name="mintcream">#F5FFFA</string>\n'
+    txt += '   <string name="azure">#F0FFFF</string>\n'
+    txt += '   <string name="aliceblue">#F0F8FF</string>\n'
+    txt += '   <string name="ghostwhite">#F8F8FF</string>\n'
+    txt += '   <string name="whitesmoke">#F5F5F5</string>\n'
+    txt += '   <string name="seashell">#FFF5EE</string>\n'
+    txt += '   <string name="beige">#F5F5DC</string>\n'
+    txt += '   <string name="oldlace">#FDF5E6</string>\n'
+    txt += '   <string name="floralwhite">#FFFAF0</string>\n'
+    txt += '   <string name="ivory">#FFFFF0</string>\n'
+    txt += '   <string name="antiquewhite">#FAEBD7</string>\n'
+    txt += '   <string name="linen">#FAF0E6</string>\n'
+    txt += '   <string name="lavenderblush">#FFF0F5</string>\n'
+    txt += '   <string name="mistyrose">#FFE4E1</string>\n'
+    txt += '   <string name="gainsboro">#DCDCDC</string>\n'
+    txt += '   <string name="lightgray">#D3D3D3</string>\n'
+    txt += '   <string name="silver">#C0C0C0</string>\n'
+    txt += '   <string name="darkgray">#A9A9A9</string>\n'
+    txt += '   <string name="gray">#808080</string>\n'
+    txt += '   <string name="dimgray">#696969</string>\n'
+    txt += '   <string name="lightslategray">#778899</string>\n'
+    txt += '   <string name="slategray">#708090</string>\n'
+    txt += '   <string name="darkslategray">#2F4F4F</string>\n'
+    txt += '   <string name="black">#000000</string>\n'
+    txt += '   <string name="cornsilk">#FFF8DC</string>\n'
+    txt += '   <string name="blanchedalmond">#FFEBCD</string>\n'
+    txt += '   <string name="bisque">#FFE4C4</string>\n'
+    txt += '   <string name="navajowhite">#FFDEAD</string>\n'
+    txt += '   <string name="wheat">#F5DEB3</string>\n'
+    txt += '   <string name="burlywood">#DEB887</string>\n'
+    txt += '   <string name="tan">#D2B48C</string>\n'
+    txt += '   <string name="rosybrown">#BC8F8F</string>\n'
+    txt += '   <string name="sandybrown">#F4A460</string>\n'
+    txt += '   <string name="goldenrod">#DAA520</string>\n'
+    txt += '   <string name="peru">#CD853F</string>\n'
+    txt += '   <string name="chocolate">#D2691E</string>\n'
+    txt += '   <string name="saddlebrown">#8B4513</string>\n'
+    txt += '   <string name="sienna">#A0522D</string>\n'
+    txt += '   <string name="brown">#A52A2A</string>\n'
+    txt += '   <string name="maroon">#800000</string>\n'
+    txt += '</resources>\n'
+    pyperclip.copy(txt)
+    print('Colours Copied !')
+
+
+def constraint():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"\n'
+    txt += '   xmlns:app="http://schemas.android.com/apk/res-auto"\n'
+    txt += '   xmlns:tools="http://schemas.android.com/tools"\n'
+    txt += '   android:layout_width="match_parent"\n'
+    txt += '   android:layout_height="match_parent">\n\n'
+    txt += '</androidx.constraintlayout.widget.ConstraintLayout>'
+    pyperclip.copy(txt)
+    print('Constraint Layout Copied !')
+
+
+def tr():
+    txt = '<TableRow\n'
+    txt += '    android:layout_width="match_parent"\n'
+    txt += '    android:layout_height="wrap_content">\n\n'
+    txt += '</TableRow>'
+    pyperclip.copy(txt)
+    print("Table Row Copied !")
+
+
+def horizontal():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"\n'
+    txt += '    xmlns:app="http://schemas.android.com/apk/res-auto"\n'
+    txt += '    xmlns:tools="http://schemas.android.com/tools"\n'
+    txt += '    android:layout_width="match_parent"\n'
+    txt += '    android:layout_height="match_parent"\n'
+    txt += '    android:fillViewport="true">\n\n'
+    txt += '</HorizontalScrollView>'
+    pyperclip.copy(txt)
+    print("Copied Main Horizontal Scroll View !")
+
+
+def linear():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"\n'
+    txt += '    xmlns:app="http://schemas.android.com/apk/res-auto"\n'
+    txt += '    xmlns:tools="http://schemas.android.com/tools"\n'
+    txt += '    android:layout_width="match_parent"\n'
+    txt += '    android:layout_height="match_parent"\n'
+    txt += '    android:paddingLeft="16dp"\n'
+    txt += '    android:paddingRight="16dp"\n'
+    txt += '    android:orientation="vertical">\n\n'
+    txt += '  <!--  Your Content Here  -->\n\n'
+    txt += '</LinearLayout>'
+    pyperclip.copy(txt)
+    print("Copied Main Linear Layout !")
+
+
+def relative():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"\n'
+    txt += '    xmlns:app="http://schemas.android.com/apk/res-auto"\n'
+    txt += '    xmlns:tools="http://schemas.android.com/tools"\n'
+    txt += '    android:layout_width="match_parent"\n'
+    txt += '    android:layout_height="match_parent"\n'
+    txt += '    android:paddingLeft="16dp"\n'
+    txt += '    android:paddingRight="16dp">\n\n'
+    txt += '  <!-- Your Content Here  -->\n\n'
+    txt += '</RelativeLayout>'
+    pyperclip.copy(txt)
+    print("Copied Main Relative Layout !")
+
+
+def scroll():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"\n'
+    txt += '    xmlns:app="http://schemas.android.com/apk/res-auto"\n'
+    txt += '    xmlns:tools="http://schemas.android.com/tools"\n'
+    txt += '    android:layout_width="match_parent"\n'
+    txt += '    android:layout_height="match_parent"\n'
+    txt += '    android:fillViewport="true">\n\n'
+    txt += '</ScrollView>'
+    pyperclip.copy(txt)
+    print("Copied Main Scroll View!")
+
+
+def table():
+    txt = '<?xml version="1.0" encoding="utf-8"?>\n'
+    txt += '<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"\n'
+    txt += '    xmlns:app="http://schemas.android.com/apk/res-auto"\n'
+    txt += '    xmlns:tools="http://schemas.android.com/tools"\n'
+    txt += '    android:layout_width="match_parent"\n'
+    txt += '    android:layout_height="match_parent">\n\n'
+    txt += '    <!-- first row of the table layout-->\n'
+    txt += '    <TableRow\n'
+    txt += '        android:layout_width="match_parent"\n'
+    txt += '        android:layout_height="wrap_content">\n\n'
+    txt += '    </TableRow>\n\n'
+    txt += '</TableLayout>\n'
+    pyperclip.copy(txt)
+    print("Copied Main Table Layout !")
+
+
+args = sys.argv[1:]
+
+if len(args) == 0:
+    print("l - linear")
+    print("r - relative")
+    print("t - table")
+    print("s - scroll")
+    print('h - horizontal')
+    print('color - colours')
+else:
+    arg = args[0].lower()
+    if arg == 'color':
+        colors()
+    elif arg[:2] == 'tr':
+        tr()
+    elif arg[:1] == 'l':
+        linear()
+    elif arg[:1] == 'r':
+        relative()
+    elif arg[:1] == 't':
+        table()
+    elif arg[:1] == 's':
+        scroll()
+    elif arg[:1] == 'h':
+        horizontal()
+    elif arg[:1] == 'c':
+        constraint()
+    else:
+        print("l - linear")
+        print("r - relative")
+        print("t - table")
+        print("s - scroll")
+        print('h - horizontal')
+
+
+#
