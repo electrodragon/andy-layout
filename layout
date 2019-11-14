@@ -7,6 +7,9 @@ import pyperclip
 def colors():
     txt = '<?xml version="1.0" encoding="utf-8"?>\n'
     txt += '<resources>\n'
+    txt += '   <color name="colorPrimary">#008577</color>\n'
+    txt += '   <color name="colorPrimaryDark">#00574B</color>\n'
+    txt += '   <color name="colorAccent">#D81B60</color>\n'
     txt += '   <color name="lightsalmon">#FFA07A</color>\n'
     txt += '   <color name="salmon">#FA8072</color>\n'
     txt += '   <color name="darksalmon">#E9967A</color>\n'
