@@ -4,6 +4,27 @@ import os
 import sys
 import pyperclip
 
+def alert():
+    txt = 'private void alert(String msg, Boolean detach, String btn) {\n'
+    txt += 'AlertDialog.Builder x = new AlertDialog.Builder(this);\n'
+    txt += 'x.setMessage(msg);\n'
+    txt += 'x.setCancelable(detach);\n'
+    txt += 'String[] b = btn.split(",,",3);\n'
+    txt += 'if (b.length == 3) {\n'
+    txt += '    x.setPositiveButton(b[0], null);\n'
+    txt += '    x.setNegativeButton(b[1], null);\n'
+    txt += '    x.setNeutralButton(b[2],null);\n'
+    txt += '} else if (b.length == 2) {\n'
+    txt += '    x.setPositiveButton(b[0], null);\n'
+    txt += '    x.setNegativeButton(b[1], null);\n'
+    txt += '} else {\n'
+    txt += '    x.setPositiveButton(b[0], null);\n'
+    txt += '}\n'
+    txt += 'x.create().show();\n'
+    txt += '}\n'
+    pyperclip.copy(txt)
+    print('Alert Function Copied !')
+
 def colors():
     txt = '<?xml version="1.0" encoding="utf-8"?>\n'
     txt += '<resources>\n'
@@ -262,6 +283,8 @@ else:
     arg = args[0].lower()
     if arg == 'color':
         colors()
+    elif arg[:1] == 'a':
+        alert()
     elif arg[:2] == 'tr':
         tr()
     elif arg[:1] == 'l':
@@ -282,6 +305,6 @@ else:
         print("t - table")
         print("s - scroll")
         print('h - horizontal')
-
+        print('a - alert')
 
 #
